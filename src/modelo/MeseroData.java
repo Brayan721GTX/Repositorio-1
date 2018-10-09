@@ -13,7 +13,11 @@ public class MeseroData {
     private Connection conn;
 
     public MeseroData(Conexion conn) {
-        this.conn = conn.getConexion();
+        try {
+            this.conn = conn.getConexion();
+        } catch (SQLException ex) {
+            Logger.getLogger(MeseroData.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void nuevoMesero(Mesero mesero) {
