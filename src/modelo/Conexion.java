@@ -16,7 +16,11 @@ public class Conexion {
         System.out.println("Conectado a la base de datos");//Confirmamos que todo salio bien
     }
     
-    public Connection getConexion() {
+    public Connection getConexion() throws SQLException {
+        if(conn.isClosed()) {
+            conn = DriverManager.getConnection(URL, "root", "");
+            return conn;
+        }
         return conn;//Devolvemos la conexion
     }
     
