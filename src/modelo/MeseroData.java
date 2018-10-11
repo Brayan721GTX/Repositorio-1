@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,9 +23,18 @@ public class MeseroData {
     
     public void nuevoMesero(Mesero mesero) {
         try {
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO mesero (nombre) VALUES(?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO mesero (nombre) VALUES(?)", Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, mesero.getNombre());
-            ps.execute();
+            
+            ps.executeUpdate();
+            
+            ResultSet rs = ps.getGeneratedKeys();
+
+            if (rs.next()) {
+                mesero.setId(rs.getInt(1));
+            } else {
+                System.out.println("No se pudo obtener el id luego de insertar un alumno");
+            }
             ps.close();
         } catch (SQLException ex) {
             Logger.getLogger(MeseroData.class.getName()).log(Level.SEVERE, null, ex);
@@ -42,11 +52,11 @@ public class MeseroData {
         }
     }
     
-    public void actualizarMesero(int idMesero, String nombre) {
+    public void actualizarMesero(Mesero mesero) {
         try {
             PreparedStatement ps = conn.prepareStatement("UPDATE mesero SET nombre = ? WHERE id = ?");
-            ps.setString(1, nombre);
-            ps.setInt(2, idMesero);
+            ps.setString(1, mesero.getNombre());
+            ps.setInt(2, mesero.getId());
             ps.execute();
             ps.close();
         } catch (SQLException ex) {
