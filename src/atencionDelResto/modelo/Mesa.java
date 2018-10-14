@@ -9,13 +9,13 @@ package atencionDelResto.modelo;
  *
  * @author Usuario
  */
-public class mesa {
+public class Mesa {
     
     private int id;
     private int capacidad;
     private boolean estado;
 
-    public mesa(int id, int capacidad, boolean estado) {
+    public Mesa(int id, int capacidad, boolean estado) {
         this.id = id;
         this.capacidad = capacidad;
         this.estado = estado;

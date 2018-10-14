@@ -9,9 +9,10 @@ package atencionDelResto.modelo;
  *
  * @author Usuario
  */
-public class producto_pedido {
-    private int id_pedido;
-    private int id_producto;
+public class Producto {
+    private int id;
+    private String nombre;
     private double precio;
-    private int cantidad;
+    private int stock;
+       
 }

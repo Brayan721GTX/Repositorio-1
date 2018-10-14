@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Usuario
  */
-public class pedido {
+public class Pedido {
     private int id;
     private int id_mesero;
     private int id_mesa;
