@@ -1,5 +1,5 @@
 
-import atencionDelResto.vistas.Principal;
+import vistas.Principal;
 import modelo.Conexion;
 
 public class AtencionDelResto {

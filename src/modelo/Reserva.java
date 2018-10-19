@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package atencionDelResto.modelo;
+package modelo;
 
 import java.util.Date;
 
@@ -11,12 +11,12 @@ import java.util.Date;
  *
  * @author Usuario
  */
-public class Pedido {
+public class Reserva {
     private int id;
-    private int id_mesero;
-    private int id_mesa;
+    private int nombre;
+    private int dni;
     private Date fecha;
-    private boolean estado;
-    
+    private int id_mesa;
+    private boolean vigente;
     
 }

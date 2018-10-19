@@ -3,16 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package atencionDelResto.modelo;
+package modelo;
+
+import java.util.Date;
 
 /**
  *
  * @author Usuario
  */
-public class Producto {
+public class Pedido {
     private int id;
-    private String nombre;
-    private double precio;
-    private int stock;
-       
+    private int id_mesero;
+    private int id_mesa;
+    private Date fecha;
+    private boolean estado;
+    
+    
 }
